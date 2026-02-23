@@ -226,6 +226,10 @@
           "en": "Electricity price is !{{below|above}} [[price]] NOK/kWh",
           "no": "Strømprisen er !{{under|over}} [[price]] NOK/kWh"
         },
+        "titleFormatted": {
+          "en": "Electricity price is !{{below|above}} [[price]] NOK/kWh",
+          "no": "Strømprisen er !{{under|over}} [[price]] NOK/kWh"
+        },
         "args": [
           {
             "type": "device",
