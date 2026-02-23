@@ -1,6 +1,6 @@
 {
   "id": "com.laddel",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "compatibility": ">=12.4.0",
   "sdk": 3,
   "platforms": [
@@ -12,7 +12,7 @@
   },
   "description": {
     "en": "Control and monitor your Laddel EV charger",
-    "no": "Kontroller og overv\u00e5k Laddel-laderen din"
+    "no": "Kontroller og overvåk Laddel-laderen din"
   },
   "category": [
     "energy"
