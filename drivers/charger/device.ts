@@ -441,7 +441,14 @@ class LaddelChargerDevice extends Homey.Device {
   async startCharging(): Promise<void> {
     const chargerId = this.getData().id;
     this.log('Starting charging session for charger:', chargerId);
-    await this.api.startCharging({ chargerId });
+    try {
+      await this.api.startCharging({ chargerId });
+    } catch (err) {
+      if (err instanceof LaddelApiError) {
+        throw new Error(this.mapApiErrorToMessage(err.errorKey, 'start'));
+      }
+      throw err;
+    }
     // The API schedules the start - charger takes a few seconds to begin.
     // Switch to rapid polling to catch the state change quickly.
     this.startRapidPolling();
@@ -451,12 +458,36 @@ class LaddelChargerDevice extends Homey.Device {
     // We need the session ID to stop. Get it from the current session.
     const session = await this.api.getCurrentSession();
     if (!session?.sessionId) {
-      throw new Error('No active session to stop');
+      throw new Error(this.homey.__('errors.no_active_session'));
     }
     this.log('Stopping charging session:', session.sessionId);
-    await this.api.stopCharging(session.sessionId);
+    try {
+      await this.api.stopCharging(session.sessionId);
+    } catch (err) {
+      if (err instanceof LaddelApiError) {
+        throw new Error(this.mapApiErrorToMessage(err.errorKey, 'stop'));
+      }
+      throw err;
+    }
     // The API schedules the stop - charger takes a few seconds to stop.
     this.startRapidPolling();
+  }
+
+  private mapApiErrorToMessage(errorKey: string | null, action: string): string {
+    switch (errorKey) {
+      case 'userAlreadyInSession':
+        return this.homey.__('errors.already_in_session');
+      case 'chargerNotAvailable':
+        return this.homey.__('errors.charger_not_available');
+      case 'chargerOffline':
+        return this.homey.__('errors.charger_offline');
+      case 'outstandingDebt':
+        return this.homey.__('errors.outstanding_debt');
+      case 'noSession':
+        return this.homey.__('errors.no_active_session');
+      default:
+        return this.homey.__('errors.action_failed', { action });
+    }
   }
 
   /**

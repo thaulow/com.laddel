@@ -2,6 +2,12 @@
   "errors": {
     "auth_failed": "Autentisering mislyktes. Reparer enheten for \u00e5 oppgi passord p\u00e5 nytt.",
     "api_error": "Kunne ikke n\u00e5 Laddel API. Pr\u00f8v igjen senere.",
-    "no_chargers": "Ingen ladere funnet for kontoen din."
+    "no_chargers": "Ingen ladere funnet for kontoen din.",
+    "already_in_session": "Du har allerede en aktiv ladesession.",
+    "charger_not_available": "Laderen er ikke tilgjengelig akkurat n\u00e5.",
+    "charger_offline": "Laderen er frakoblet.",
+    "outstanding_debt": "Kan ikke starte lading p\u00e5 grunn av utestående gjeld på kontoen din.",
+    "no_active_session": "Ingen aktiv ladesession \u00e5 stoppe.",
+    "action_failed": "Kunne ikke __action__ lading. Pr\u00f8v igjen."
   }
 }

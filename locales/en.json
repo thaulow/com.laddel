@@ -2,6 +2,12 @@
   "errors": {
     "auth_failed": "Authentication failed. Please repair the device to re-enter your credentials.",
     "api_error": "Could not reach the Laddel API. Please try again later.",
-    "no_chargers": "No chargers found for your account."
+    "no_chargers": "No chargers found for your account.",
+    "already_in_session": "You already have an active charging session.",
+    "charger_not_available": "The charger is not available right now.",
+    "charger_offline": "The charger is offline.",
+    "outstanding_debt": "Cannot start charging due to outstanding debt on your account.",
+    "no_active_session": "No active charging session to stop.",
+    "action_failed": "Failed to __action__ charging. Please try again."
   }
 }
