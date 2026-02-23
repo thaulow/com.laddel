@@ -1,0 +1,11 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Sessions This Month",
+    "no": "Sesjoner denne måneden"
+  },
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "decimals": 0
+}

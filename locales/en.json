@@ -1,0 +1,7 @@
+{
+  "errors": {
+    "auth_failed": "Authentication failed. Please repair the device to re-enter your credentials.",
+    "api_error": "Could not reach the Laddel API. Please try again later.",
+    "no_chargers": "No chargers found for your account."
+  }
+}

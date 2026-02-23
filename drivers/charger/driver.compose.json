@@ -1,0 +1,117 @@
+{
+  "name": {
+    "en": "Laddel Charger",
+    "no": "Laddel Lader"
+  },
+  "class": "other",
+  "capabilities": [
+    "onoff",
+    "measure_power",
+    "meter_power",
+    "charging_duration",
+    "electricity_price",
+    "charging_cost",
+    "last_session_cost",
+    "monthly_cost",
+    "monthly_sessions",
+    "charger_mode",
+    "car_connected",
+    "max_power_capacity"
+  ],
+  "capabilitiesOptions": {
+    "onoff": {
+      "title": {
+        "en": "Charging",
+        "no": "Lading"
+      }
+    },
+    "measure_power": {
+      "title": {
+        "en": "Charging Power",
+        "no": "Ladeeffekt"
+      }
+    },
+    "meter_power": {
+      "title": {
+        "en": "Session Energy",
+        "no": "Sesjon energi"
+      }
+    }
+  },
+  "energy": {
+    "approximation": {
+      "usageOn": 7400,
+      "usageOff": 0
+    }
+  },
+  "pair": [
+    {
+      "id": "login_credentials",
+      "template": "login_credentials",
+      "options": {
+        "title": {
+          "en": "Log in to Laddel",
+          "no": "Logg inn hos Laddel"
+        },
+        "usernameLabel": {
+          "en": "E-mail address",
+          "no": "E-postadresse"
+        },
+        "usernamePlaceholder": {
+          "en": "your@email.com"
+        },
+        "passwordLabel": {
+          "en": "Password",
+          "no": "Passord"
+        },
+        "passwordPlaceholder": {
+          "en": "Password",
+          "no": "Passord"
+        }
+      }
+    },
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": {
+        "next": "add_devices"
+      }
+    },
+    {
+      "id": "add_devices",
+      "template": "add_devices"
+    }
+  ],
+  "repair": [
+    {
+      "id": "login_credentials",
+      "template": "login_credentials",
+      "options": {
+        "title": {
+          "en": "Re-authenticate with Laddel",
+          "no": "Autentiser deg p\u00e5 nytt med Laddel"
+        },
+        "usernameLabel": {
+          "en": "E-mail address",
+          "no": "E-postadresse"
+        },
+        "usernamePlaceholder": {
+          "en": "your@email.com"
+        },
+        "passwordLabel": {
+          "en": "Password",
+          "no": "Passord"
+        },
+        "passwordPlaceholder": {
+          "en": "Password",
+          "no": "Passord"
+        }
+      }
+    }
+  ],
+  "images": {
+    "small": "/drivers/charger/assets/images/small.png",
+    "large": "/drivers/charger/assets/images/large.png",
+    "xlarge": "/drivers/charger/assets/images/xlarge.png"
+  }
+}

@@ -1,0 +1,578 @@
+{
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
+  "id": "com.laddel",
+  "version": "1.0.0",
+  "compatibility": ">=12.4.0",
+  "sdk": 3,
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "Laddel EV Charging",
+    "no": "Laddel Elbillading"
+  },
+  "description": {
+    "en": "Control and monitor your Laddel EV charger",
+    "no": "Kontroller og overvåk Laddel-laderen din"
+  },
+  "category": [
+    "energy"
+  ],
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "brandColor": "#18b381",
+  "author": {
+    "name": "Thomas Thaulow Stöcklin",
+    "email": "thaulow@thaulow.co"
+  },
+  "flow": {
+    "triggers": [
+      {
+        "id": "charging_started",
+        "title": {
+          "en": "Charging started",
+          "no": "Lading startet"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=charger"
+          }
+        ]
+      },
+      {
+        "id": "charging_stopped",
+        "title": {
+          "en": "Charging stopped",
+          "no": "Lading stoppet"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=charger"
+          }
+        ]
+      },
+      {
+        "id": "charger_status_changed",
+        "title": {
+          "en": "Charger status changed",
+          "no": "Laderstatus endret"
+        },
+        "tokens": [
+          {
+            "name": "status",
+            "type": "string",
+            "title": {
+              "en": "Status",
+              "no": "Status"
+            },
+            "example": {
+              "en": "CHARGING"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=charger"
+          }
+        ]
+      },
+      {
+        "id": "electricity_price_changed",
+        "title": {
+          "en": "Electricity price changed",
+          "no": "Strømprisen endret seg"
+        },
+        "tokens": [
+          {
+            "name": "price",
+            "type": "number",
+            "title": {
+              "en": "Price (NOK/kWh)",
+              "no": "Pris (NOK/kWh)"
+            },
+            "example": {
+              "en": "1.25"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=charger"
+          }
+        ]
+      },
+      {
+        "id": "car_connected",
+        "title": {
+          "en": "Car connected",
+          "no": "Bil tilkoblet"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=charger"
+          }
+        ]
+      },
+      {
+        "id": "car_disconnected",
+        "title": {
+          "en": "Car disconnected",
+          "no": "Bil frakoblet"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=charger"
+          }
+        ]
+      },
+      {
+        "id": "charging_stopped_with_details",
+        "title": {
+          "en": "Charging session completed",
+          "no": "Ladesession fullført"
+        },
+        "tokens": [
+          {
+            "name": "energy",
+            "type": "number",
+            "title": {
+              "en": "Energy (kWh)",
+              "no": "Energi (kWh)"
+            },
+            "example": {
+              "en": "12.5"
+            }
+          },
+          {
+            "name": "duration",
+            "type": "number",
+            "title": {
+              "en": "Duration (min)",
+              "no": "Varighet (min)"
+            },
+            "example": {
+              "en": "180"
+            }
+          },
+          {
+            "name": "cost",
+            "type": "number",
+            "title": {
+              "en": "Cost (NOK)",
+              "no": "Kostnad (NOK)"
+            },
+            "example": {
+              "en": "45.50"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=charger"
+          }
+        ]
+      }
+    ],
+    "conditions": [
+      {
+        "id": "is_charging",
+        "title": {
+          "en": "!{{is|is not}} charging",
+          "no": "!{{lader|lader ikke}}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=charger"
+          }
+        ]
+      },
+      {
+        "id": "is_car_connected",
+        "title": {
+          "en": "Car !{{is|is not}} connected",
+          "no": "Bil !{{er|er ikke}} tilkoblet"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=charger"
+          }
+        ]
+      },
+      {
+        "id": "electricity_price_below",
+        "title": {
+          "en": "Electricity price is !{{below|above}} [[price]] NOK/kWh",
+          "no": "Strømprisen er !{{under|over}} [[price]] NOK/kWh"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=charger"
+          },
+          {
+            "name": "price",
+            "type": "number",
+            "min": 0,
+            "max": 20,
+            "step": 0.01,
+            "placeholder": {
+              "en": "1.50",
+              "no": "1.50"
+            }
+          }
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "id": "start_charging",
+        "title": {
+          "en": "Start charging",
+          "no": "Start lading"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=charger"
+          }
+        ]
+      },
+      {
+        "id": "stop_charging",
+        "title": {
+          "en": "Stop charging",
+          "no": "Stopp lading"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=charger"
+          }
+        ]
+      }
+    ]
+  },
+  "drivers": [
+    {
+      "name": {
+        "en": "Laddel Charger",
+        "no": "Laddel Lader"
+      },
+      "class": "other",
+      "capabilities": [
+        "onoff",
+        "measure_power",
+        "meter_power",
+        "charging_duration",
+        "electricity_price",
+        "charging_cost",
+        "last_session_cost",
+        "monthly_cost",
+        "monthly_sessions",
+        "charger_mode",
+        "car_connected",
+        "max_power_capacity"
+      ],
+      "capabilitiesOptions": {
+        "onoff": {
+          "title": {
+            "en": "Charging",
+            "no": "Lading"
+          }
+        },
+        "measure_power": {
+          "title": {
+            "en": "Charging Power",
+            "no": "Ladeeffekt"
+          }
+        },
+        "meter_power": {
+          "title": {
+            "en": "Session Energy",
+            "no": "Sesjon energi"
+          }
+        }
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 7400,
+          "usageOff": 0
+        }
+      },
+      "pair": [
+        {
+          "id": "login_credentials",
+          "template": "login_credentials",
+          "options": {
+            "title": {
+              "en": "Log in to Laddel",
+              "no": "Logg inn hos Laddel"
+            },
+            "usernameLabel": {
+              "en": "E-mail address",
+              "no": "E-postadresse"
+            },
+            "usernamePlaceholder": {
+              "en": "your@email.com"
+            },
+            "passwordLabel": {
+              "en": "Password",
+              "no": "Passord"
+            },
+            "passwordPlaceholder": {
+              "en": "Password",
+              "no": "Passord"
+            }
+          }
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "repair": [
+        {
+          "id": "login_credentials",
+          "template": "login_credentials",
+          "options": {
+            "title": {
+              "en": "Re-authenticate with Laddel",
+              "no": "Autentiser deg på nytt med Laddel"
+            },
+            "usernameLabel": {
+              "en": "E-mail address",
+              "no": "E-postadresse"
+            },
+            "usernamePlaceholder": {
+              "en": "your@email.com"
+            },
+            "passwordLabel": {
+              "en": "Password",
+              "no": "Passord"
+            },
+            "passwordPlaceholder": {
+              "en": "Password",
+              "no": "Passord"
+            }
+          }
+        }
+      ],
+      "images": {
+        "small": "/drivers/charger/assets/images/small.png",
+        "large": "/drivers/charger/assets/images/large.png",
+        "xlarge": "/drivers/charger/assets/images/xlarge.png"
+      },
+      "id": "charger",
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Charger Information",
+            "no": "Laderinformasjon"
+          },
+          "children": [
+            {
+              "id": "facilityName",
+              "type": "label",
+              "label": {
+                "en": "Facility",
+                "no": "Anlegg"
+              },
+              "value": "-"
+            },
+            {
+              "id": "chargerName",
+              "type": "label",
+              "label": {
+                "en": "Charger",
+                "no": "Lader"
+              },
+              "value": "-"
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Polling Intervals",
+            "no": "Pollingintervall"
+          },
+          "children": [
+            {
+              "id": "pollIntervalIdle",
+              "type": "number",
+              "label": {
+                "en": "Idle interval (seconds)",
+                "no": "Intervall ved inaktivitet (sekunder)"
+              },
+              "value": 300,
+              "min": 60,
+              "max": 900
+            },
+            {
+              "id": "pollIntervalCharging",
+              "type": "number",
+              "label": {
+                "en": "Charging interval (seconds)",
+                "no": "Intervall ved lading (sekunder)"
+              },
+              "value": 30,
+              "min": 10,
+              "max": 120
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "capabilities": {
+    "car_connected": {
+      "type": "boolean",
+      "title": {
+        "en": "Car Connected",
+        "no": "Bil tilkoblet"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "insights": true
+    },
+    "charger_mode": {
+      "type": "string",
+      "title": {
+        "en": "Charger Status",
+        "no": "Laderstatus"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "charging_cost": {
+      "type": "number",
+      "title": {
+        "en": "Session Cost",
+        "no": "Sesjonskostnad"
+      },
+      "units": {
+        "en": "NOK"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "decimals": 2
+    },
+    "charging_duration": {
+      "type": "number",
+      "title": {
+        "en": "Charging Duration",
+        "no": "Ladevarighet"
+      },
+      "units": {
+        "en": "min"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "decimals": 0
+    },
+    "electricity_price": {
+      "type": "number",
+      "title": {
+        "en": "Electricity Price",
+        "no": "Strømpris"
+      },
+      "units": {
+        "en": "NOK/kWh"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "decimals": 2
+    },
+    "last_session_cost": {
+      "type": "number",
+      "title": {
+        "en": "Last Session Cost",
+        "no": "Siste sesjonskostnad"
+      },
+      "units": {
+        "en": "NOK"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "decimals": 2
+    },
+    "max_power_capacity": {
+      "type": "number",
+      "title": {
+        "en": "Max Charging Capacity",
+        "no": "Maks ladekapasitet"
+      },
+      "units": {
+        "en": "kW"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "decimals": 1
+    },
+    "monthly_cost": {
+      "type": "number",
+      "title": {
+        "en": "Monthly Charging Cost",
+        "no": "Månedlig ladekostnad"
+      },
+      "units": {
+        "en": "NOK"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "decimals": 2
+    },
+    "monthly_sessions": {
+      "type": "number",
+      "title": {
+        "en": "Sessions This Month",
+        "no": "Sesjoner denne måneden"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "decimals": 0
+    }
+  }
+}

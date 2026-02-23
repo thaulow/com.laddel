@@ -1,0 +1,14 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Charging Duration",
+    "no": "Ladevarighet"
+  },
+  "units": {
+    "en": "min"
+  },
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "decimals": 0
+}

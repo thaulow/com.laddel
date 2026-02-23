@@ -1,0 +1,31 @@
+{
+  "id": "com.laddel",
+  "version": "1.0.0",
+  "compatibility": ">=12.4.0",
+  "sdk": 3,
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "Laddel EV Charging",
+    "no": "Laddel Elbillading"
+  },
+  "description": {
+    "en": "Control and monitor your Laddel EV charger",
+    "no": "Kontroller og overv\u00e5k Laddel-laderen din"
+  },
+  "category": [
+    "energy"
+  ],
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "brandColor": "#18b381",
+  "author": {
+    "name": "Thomas Thaulow Stöcklin",
+    "email": "thaulow@thaulow.co"
+  }
+}

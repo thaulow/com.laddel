@@ -1,0 +1,166 @@
+{
+  "triggers": [
+    {
+      "id": "charging_started",
+      "title": {
+        "en": "Charging started",
+        "no": "Lading startet"
+      }
+    },
+    {
+      "id": "charging_stopped",
+      "title": {
+        "en": "Charging stopped",
+        "no": "Lading stoppet"
+      }
+    },
+    {
+      "id": "charger_status_changed",
+      "title": {
+        "en": "Charger status changed",
+        "no": "Laderstatus endret"
+      },
+      "tokens": [
+        {
+          "name": "status",
+          "type": "string",
+          "title": {
+            "en": "Status",
+            "no": "Status"
+          },
+          "example": {
+            "en": "CHARGING"
+          }
+        }
+      ]
+    },
+    {
+      "id": "electricity_price_changed",
+      "title": {
+        "en": "Electricity price changed",
+        "no": "Str\u00f8mprisen endret seg"
+      },
+      "tokens": [
+        {
+          "name": "price",
+          "type": "number",
+          "title": {
+            "en": "Price (NOK/kWh)",
+            "no": "Pris (NOK/kWh)"
+          },
+          "example": {
+            "en": "1.25"
+          }
+        }
+      ]
+    },
+    {
+      "id": "car_connected",
+      "title": {
+        "en": "Car connected",
+        "no": "Bil tilkoblet"
+      }
+    },
+    {
+      "id": "car_disconnected",
+      "title": {
+        "en": "Car disconnected",
+        "no": "Bil frakoblet"
+      }
+    },
+    {
+      "id": "charging_stopped_with_details",
+      "title": {
+        "en": "Charging session completed",
+        "no": "Ladesession fullf\u00f8rt"
+      },
+      "tokens": [
+        {
+          "name": "energy",
+          "type": "number",
+          "title": {
+            "en": "Energy (kWh)",
+            "no": "Energi (kWh)"
+          },
+          "example": {
+            "en": "12.5"
+          }
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "title": {
+            "en": "Duration (min)",
+            "no": "Varighet (min)"
+          },
+          "example": {
+            "en": "180"
+          }
+        },
+        {
+          "name": "cost",
+          "type": "number",
+          "title": {
+            "en": "Cost (NOK)",
+            "no": "Kostnad (NOK)"
+          },
+          "example": {
+            "en": "45.50"
+          }
+        }
+      ]
+    }
+  ],
+  "conditions": [
+    {
+      "id": "is_charging",
+      "title": {
+        "en": "!{{is|is not}} charging",
+        "no": "!{{lader|lader ikke}}"
+      }
+    },
+    {
+      "id": "is_car_connected",
+      "title": {
+        "en": "Car !{{is|is not}} connected",
+        "no": "Bil !{{er|er ikke}} tilkoblet"
+      }
+    },
+    {
+      "id": "electricity_price_below",
+      "title": {
+        "en": "Electricity price is !{{below|above}} [[price]] NOK/kWh",
+        "no": "Str\u00f8mprisen er !{{under|over}} [[price]] NOK/kWh"
+      },
+      "args": [
+        {
+          "name": "price",
+          "type": "number",
+          "min": 0,
+          "max": 20,
+          "step": 0.01,
+          "placeholder": {
+            "en": "1.50",
+            "no": "1.50"
+          }
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "id": "start_charging",
+      "title": {
+        "en": "Start charging",
+        "no": "Start lading"
+      }
+    },
+    {
+      "id": "stop_charging",
+      "title": {
+        "en": "Stop charging",
+        "no": "Stopp lading"
+      }
+    }
+  ]
+}

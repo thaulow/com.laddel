@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 64 80" xmlns="http://www.w3.org/2000/svg">
+  <!-- Zaptec-style charger body: rounded rectangle, wider at top -->
+  <path d="M12 6 C12 2, 16 0, 20 0 L44 0 C48 0, 52 2, 52 6 L52 58 C52 60, 51 63, 48 65 L44 68 C42 69.5, 40 70, 38 70 L26 70 C24 70, 22 69.5, 20 68 L16 65 C13 63, 12 60, 12 58 Z"
+        fill="none" stroke="#000" stroke-width="2.5"/>
+
+  <!-- Horizontal panel seam -->
+  <line x1="12" y1="46" x2="52" y2="46" stroke="#000" stroke-width="1.5"/>
+
+  <!-- LED status ring (circle) -->
+  <circle cx="32" cy="24" r="11" fill="none" stroke="#000" stroke-width="2.5"/>
+  <circle cx="32" cy="24" r="8" fill="none" stroke="#000" stroke-width="1"/>
+
+  <!-- Lightning bolt inside circle -->
+  <path d="M34 17 L28 25 L32 25 L30 31 L36 23 L32 23 Z" fill="#000"/>
+
+  <!-- Small NFC dot below circle -->
+  <circle cx="32" cy="39" r="2" fill="#000"/>
+
+  <!-- Cable holder at bottom -->
+  <path d="M25 70 L25 74 C25 77, 28 79, 32 79 C36 79, 39 77, 39 74 L39 70"
+        fill="none" stroke="#000" stroke-width="2"/>
+  <!-- Cable tab -->
+  <rect x="30" y="73" width="4" height="3" rx="1" fill="#000"/>
+</svg>

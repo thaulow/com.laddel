@@ -1,0 +1,14 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Electricity Price",
+    "no": "Strømpris"
+  },
+  "units": {
+    "en": "NOK/kWh"
+  },
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "decimals": 2
+}

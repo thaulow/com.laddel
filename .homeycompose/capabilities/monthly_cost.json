@@ -1,0 +1,14 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Monthly Charging Cost",
+    "no": "Månedlig ladekostnad"
+  },
+  "units": {
+    "en": "NOK"
+  },
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "decimals": 2
+}

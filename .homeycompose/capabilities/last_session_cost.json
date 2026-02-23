@@ -1,0 +1,14 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Last Session Cost",
+    "no": "Siste sesjonskostnad"
+  },
+  "units": {
+    "en": "NOK"
+  },
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "decimals": 2
+}
