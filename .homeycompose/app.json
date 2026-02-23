@@ -11,8 +11,8 @@
     "no": "Laddel Elbillading"
   },
   "description": {
-    "en": "Control and monitor your Laddel EV charger",
-    "no": "Kontroller og overvåk Laddel-laderen din"
+    "en": "Control and monitor your EV charger",
+    "no": "Kontroller og overvåk elbilladeren din"
   },
   "category": [
     "energy"

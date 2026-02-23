@@ -1,1 +1,1 @@
-Manage your car charging
+Monitor and control your Laddel EV charger from Homey. Track charging sessions, energy usage, costs, and electricity prices. Start and stop charging remotely, get notified when your car connects or charging completes, and automate charging with Homey flows based on electricity price.
